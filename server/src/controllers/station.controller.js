@@ -1,6 +1,7 @@
-import StationSchema from "../models/stationSchema.js";
+import StationSchema from "../models/station.schema.js";
 
 export const getAllStations = async (req, res) => {
+  console.log(req.user)
   try {
     const stations = await StationSchema.find();
     res.status(200).json(stations);
@@ -14,7 +15,7 @@ export const addStation = async (req, res) => {
   const newStation = new StationSchema(station);
   try {
     await newStation.save();
-    res.status(200).json(station);
+    res.status(200).json(newStation);
   } catch (error) {
     res.status(404).json({ message: error.message });
   }

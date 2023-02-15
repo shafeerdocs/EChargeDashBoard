@@ -4,7 +4,7 @@ import {
   deleteStationById,
   getAllStations,
   updateStation,
-} from "../controllers/stationController.js";
+} from "../controllers/station.controller.js";
 const router = express.Router();
 
 router.get("/", getAllStations);

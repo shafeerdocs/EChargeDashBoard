@@ -4,8 +4,10 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { conn } from "./src/models/connection.js";
-import stationRoutes from "./src/routes/stationRoutes.js";
-import socketRoutes from "./src/routes/socketRoutes.js";
+import stationRoutes from "./src/routes/station.route.js";
+import socketRoutes from "./src/routes/socket.route.js";
+import userRoutes from "./src/routes/user.route.js";
+import { authorizeAdmin } from "./src/middleware/auth.middleware.js";
 
 //initializations
 dotenv.config();
@@ -22,6 +24,7 @@ app.use(bodyParser.urlencoded({ limit: "100mb", extended: "true" }));
 app.use(cors());
 
 //routes
+app.use("/user", userRoutes);
 app.use("/station", stationRoutes);
 app.use("/socket", socketRoutes);
 

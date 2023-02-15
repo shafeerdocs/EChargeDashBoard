@@ -1,14 +1,48 @@
 .dashboardWrapper {
   height: 100vh;
   width: 100vw;
+}
+.addButtonWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  margin-bottom: 16px;
+}
+.tableWrapper {
+  text-align: left !important;
+}
+.dashboardHeaderWrapper {
+  padding: 2rem;
+  background: linear-gradient(
+    to right,
+    rgba(122, 203, 250, 255),
+    rgba(47, 72, 167, 255)
+  );
+  color: #fff;
+}
+.dashboardBodyWrapper {
   padding: 2rem;
 }
-.addButtonWrapper{
-    width: 100%;
-    display:flex;
-    justify-content: end;
-    margin-bottom: 16px;
+.nav-tabs {
+  border-bottom: none;
 }
-.tableWrapper{
-  text-align: left !important;
+.nav-link {
+  border: none !important;
+  border-radius: 0;
+  color: #000;
+  font-size: 1.2rem;
+}
+.nav-link.active {
+  border-bottom: 4px solid rgba(47, 72, 167, 255) !important;
+  color: rgba(47, 72, 167, 255) !important;
+  font-weight: 500 !important;
+}
+
+.addButton {
+  background-color: rgba(47, 72, 167, 0.9);
+  border: rgba(47, 72, 167, 0.9);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: rgba(122, 203, 250, 0.1);
 }

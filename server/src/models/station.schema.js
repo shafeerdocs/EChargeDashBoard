@@ -7,7 +7,9 @@ const stationSchema = mongoose.Schema(
     location: String,
     city: String,
     country: String,
-    sockets: [{ type: Schema.Types.ObjectId, ref: "socket" }],
+    sockets: [
+      { _id: { type: Schema.Types.ObjectId, ref: "socket" }, title: String },
+    ],
   },
   {
     timestamps: true,

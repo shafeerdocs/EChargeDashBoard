@@ -1,4 +1,4 @@
-import SocketSchema from "../models/socketSchema.js";
+import SocketSchema from "../models/socket.schema.js";
 
 export const getAllSockets = async (req, res) => {
   try {

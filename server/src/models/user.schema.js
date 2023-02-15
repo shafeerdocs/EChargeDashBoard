@@ -7,6 +7,7 @@ const userSchema = mongoose.Schema(
     phone: String,
     email: String,
     password: String,
+    role: { type: String, default: "user" },
   },
   {
     timestamps: true,

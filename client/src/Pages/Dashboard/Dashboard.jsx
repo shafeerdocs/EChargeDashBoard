@@ -34,20 +34,23 @@ export default function Dashboard() {
 
   return (
     <div className="dashboardWrapper">
-      <h4>Admin Dashboard</h4>
-      <Tabs
-        defaultActiveKey="ev-station"
-        className="mb-3 mt-4"
-        fill
-        onSelect={handleChange}
-      >
-        <Tab eventKey="ev-station" title="EV station">
-          <StationList stations={stations} sockets={sockets} />
-        </Tab>
-        <Tab eventKey="socket" title="Socket">
-          <SocketList sockets={sockets} />
-        </Tab>
-      </Tabs>
+      <div className="dashboardHeaderWrapper">
+        <h3 style={{ fontWeight: "700" }}>Admin Dashboard</h3>
+      </div>
+      <div className="dashboardBodyWrapper">
+        <Tabs
+          defaultActiveKey="ev-station"
+          className="mb-3 mt-4"
+          onSelect={handleChange}
+        >
+          <Tab eventKey="ev-station" title="EV station">
+            <StationList stations={stations} sockets={sockets} />
+          </Tab>
+          <Tab eventKey="socket" title="Socket">
+            <SocketList sockets={sockets} />
+          </Tab>
+        </Tabs>
+      </div>
     </div>
   );
 }

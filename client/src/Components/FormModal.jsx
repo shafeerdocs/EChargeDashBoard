@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import Select from "react-select";
 
-export default function FormModal({ show, close, title, form, onSubmit }) {
+export default function FormModal({
+  show,
+  close,
+  title,
+  form,
+  onSubmit,
+  action,
+}) {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleChange = (selectedOption, item) => {
@@ -23,6 +30,7 @@ export default function FormModal({ show, close, title, form, onSubmit }) {
               <Form.Label>{item.label}</Form.Label>
               {item.type === "text" ? (
                 <Form.Control
+                  defaultValue={item.value}
                   type="text"
                   placeholder={item.placeholder}
                   onChange={(e) => (item.value = e.target.value)}
@@ -30,7 +38,7 @@ export default function FormModal({ show, close, title, form, onSubmit }) {
               ) : item.type === "select" ? (
                 <Select
                   isMulti={true}
-                  value={selectedOption}
+                  value={selectedOption || item.value}
                   onChange={(e) => handleChange(e, item)}
                   options={item.options}
                 />
@@ -40,7 +48,7 @@ export default function FormModal({ show, close, title, form, onSubmit }) {
             </Form.Group>
           ))}
           <Button variant="primary" type="submit">
-            Add
+            {action}
           </Button>
         </Form>
       </Modal.Body>
